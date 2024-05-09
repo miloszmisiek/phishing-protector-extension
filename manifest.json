@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Phishing Protector",
   "version": "1.0",
-  "description": "Detects possible phishing URLs on Twitte/X website.",
+  "description": "Detects possible phishing URLs on Twitter/X website.",
   "permissions": ["tabs", "activeTab", "storage"],
   "host_permissions": [
     "https://*.twitter.com/*",
