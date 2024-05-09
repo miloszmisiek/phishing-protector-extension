@@ -15,6 +15,7 @@
       <path d="M20 6 9 17l-5-5"/>
     </svg>
   `;
+
   const fetchUrls = () => {
     return new Promise((resolve) => {
       if (currentTabId) {
@@ -265,13 +266,16 @@
 
 async function postURL(data) {
   try {
-    const response = await fetch(modelPredicitonRoute, {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://frozen-ridge-84043-35ae3552d508.herokuapp.com/predict",
+      {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const result = await response.json();
     return result;
