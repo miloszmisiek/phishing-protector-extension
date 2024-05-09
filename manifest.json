@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Detector",
+  "version": "1.0",
+  "description": "Detects possible phishing URLs.",
+  "permissions": ["tabs", "activeTab", "storage"],
+  "host_permissions": [
+    "https://*.twitter.com/*",
+    "https://*.x.com/*, http://127.0.0.1:8000/*, https://frozen-ridge-84043-35ae3552d508.herokuapp.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.twitter.com/*", "https://*.x.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/warning-only-sign.png"],
+      "matches": ["https://*.twitter.com/*", "https://*.x.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "assets/warning.png",
+    "48": "assets/warning.png",
+    "128": "assets/warning.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
