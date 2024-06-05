@@ -11,7 +11,7 @@ const notATwitterMessage = `
 document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabURL();
 
-  if (activeTab.url.includes("twitter.com")) {
+  if (activeTab.url.includes("twitter.com") || activeTab.url.includes("x.com")) {
     try {
       chrome.storage.sync.get([activeTab.id.toString()], (data) => {
         const currentUrls = data[activeTab.id.toString()]
